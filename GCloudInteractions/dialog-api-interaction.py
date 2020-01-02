@@ -8,16 +8,16 @@ import uuid
 
 
 #Variables
-tempSessionid = "DarkArcane"
-tempText = []
+# tempSessionid = "12345"
+# tempText = ["Hi"]
 global proj_id
-proj_id = "kil-a-bytes-acaxis"
+proj_id = ""
 language = "en-US"
 
 #JSON Parsing
-#with open('./GCloudCredentials/credentials.json') as json_file:
-   # data = json.load(json_file)
-    #proj_id = data['project_id']
+with open('./GCloudCredentials/credentials.json') as json_file:
+    data = json.load(json_file)
+    proj_id = data['project_id']
 
 #GAPI Interaction
 
