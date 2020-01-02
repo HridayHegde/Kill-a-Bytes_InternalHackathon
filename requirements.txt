@@ -1,3 +1,4 @@
 uwsgi
 dialogflow
 flask
+flask-cors
