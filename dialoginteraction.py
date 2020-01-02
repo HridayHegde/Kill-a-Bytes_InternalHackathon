@@ -1,5 +1,5 @@
 import os
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="\GCloudCredentials\credentials.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="GCloudCredentials\credentials.json"
 import json
 import dialogflow_v2 as dialogflow
 
@@ -17,7 +17,7 @@ proj_id = ""
 #JSON Parsing
 def getid():
     proj_id = ""
-    with open('/GCloudCredentials/credentials.json') as json_file:
+    with open('GCloudCredentials/credentials.json') as json_file:
         data = json.load(json_file)
         proj_id = data['project_id']
     return proj_id
