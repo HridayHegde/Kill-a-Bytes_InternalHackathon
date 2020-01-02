@@ -1,4 +1,4 @@
-.col-md-5 {
+.col-sm-5 {
     font-family: Montserrat;
     font-style: normal;
 }
@@ -38,6 +38,44 @@ body {
     border-color: #727AFF !important;
 }
 
-.col-md-2 {
+.col-sm-2 {
     padding-right: 4px !important;
+}
+
+.send-btn {
+    height: 40px;
+    background-color: #727AFF;
+    color: white;
+}
+
+input {
+    height: 40px;
+}
+
+button {
+    width: 100%;
+}
+
+@media only screen and (max-width: 575px) {
+    img {
+        visibility: hidden;
+    }
+    .col-sm-5 {
+        width: 60%;
+    }
+    #send-btn {
+        height: 40px;
+    }
+    .but-center {
+        text-align: center;
+    }
+    .menu {
+        margin-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    img {
+        visibility: hidden;
+    }
 }
