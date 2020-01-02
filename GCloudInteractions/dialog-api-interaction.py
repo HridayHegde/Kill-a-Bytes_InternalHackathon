@@ -8,8 +8,8 @@ import uuid
 
 
 #Variables
-# tempSessionid = "12345"
-# tempText = ["Hi"]
+tempSessionid = "12345"
+tempText = []
 global proj_id
 proj_id = ""
 language = "en-US"
@@ -38,24 +38,25 @@ def detect_intent_texts(project_id, session_id, texts, language_code):
 
         response = session_client.detect_intent(
             session=session, query_input=query_input)
-        print(response)
+        #print(response)
 
 #Debug Code - Final Commit without REST Integration - Cover API for Google Cloud API
-        # print('=' * 20)
-        # print('Query text: {}'.format(response.query_result.query_text))
-        # print('Detected intent: {} (confidence: {})\n'.format(
-        #     response.query_result.intent.display_name,
-        #     response.query_result.intent_detection_confidence))
-        # print('Fulfillment text: {}\n'.format(
-        #     response.query_result.fulfillment_text))
+        print('=' * 20)
+        print('Query text: {}'.format(response.query_result.query_text))
+        print('Detected intent: {} (confidence: {})\n'.format(
+            response.query_result.intent.display_name,
+            response.query_result.intent_detection_confidence))
+        print('Fulfillment text: {}\n'.format(
+            response.query_result.fulfillment_text))
 # [END dialogflow_detect_intent_text]
 
-
-
-#Temp Work Area
-# print("OUTPUT from API STARTS : \n")
-# detect_intent_texts(proj_id,tempSessionid,tempText,language)
-# print("\nOUTPUT ENDS")
+while(tempText != "quit"):
+    tempText = []
+    tempText.append(input())
+    #Temp Work Area
+    print("OUTPUT from API STARTS : \n")
+    detect_intent_texts(proj_id,tempSessionid,tempText,language)
+    print("\nOUTPUT ENDS")
 
 
 
