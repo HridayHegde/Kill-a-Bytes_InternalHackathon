@@ -4,7 +4,7 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route("/communicate", methods=['POST'])
+@app.route("/", methods=['POST'])
 def communicate():
     some_json=request.get_json()
     sessionid = some_json['session']
