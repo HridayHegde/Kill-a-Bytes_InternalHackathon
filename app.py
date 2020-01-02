@@ -11,7 +11,7 @@ def communicate():
     sessionid = some_json['session']
     text = some_json['text']  
     response = dialoginteraction.detect_intent_texts(sessionid,text)  
-    return str(response)
+    return response
 
 if __name__=='__main__':
     app.run(debug=True)
