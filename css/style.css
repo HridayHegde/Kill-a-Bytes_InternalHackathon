@@ -32,3 +32,8 @@ body {
     overflow: scroll;
     height: 500px;
 }
+
+.btn-primary {
+    background-color: #727AFF !important;
+    border-color: #727AFF !important;
+}
