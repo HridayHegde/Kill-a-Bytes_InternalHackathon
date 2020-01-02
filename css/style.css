@@ -10,7 +10,7 @@
 
 .presents {
     font-weight: 600;
-    font-size: 24px;
+    font-size: 18px;
     color: #9C9C9C;
 }
 
@@ -36,4 +36,8 @@ body {
 .btn-primary {
     background-color: #727AFF !important;
     border-color: #727AFF !important;
+}
+
+.col-md-2 {
+    padding-right: 4px !important;
 }
