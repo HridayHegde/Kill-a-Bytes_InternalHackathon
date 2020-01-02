@@ -9,6 +9,7 @@ function query(sessionid,textinp) {
         contentType: "application/text; charset=utf-8",
         data: String(datatosend),
         success: function (response) {
+            print(response);
             return response;
         },
         failure: function (response) {
