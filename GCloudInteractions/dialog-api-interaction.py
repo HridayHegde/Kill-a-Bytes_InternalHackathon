@@ -4,7 +4,7 @@ import json
 
 #Variables
 tempSessionid = "DarkArcane"
-tempText = "Hi"
+tempText = ["Hi"]
 global proj_id
 proj_id = "kil-a-bytes-acaxis"
 language = "en-US"
