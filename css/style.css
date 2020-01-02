@@ -28,7 +28,7 @@ body {
     overflow: hidden;
 }
 
-.container-fluid {
+.chat-window {
     overflow: scroll;
-    height: 600px;
+    height: 500px;
 }
