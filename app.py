@@ -35,7 +35,7 @@ def addtodb():
     print(mydb)
     mycursor = mydb.cursor()
 
-    sql = "INSERT INTO customers (name, email, phone) VALUES (%s, %s,%s)"
+    sql = "INSERT INTO testdb (name, email, phone) VALUES (%s, %s,%s)"
     val = (name, email,int(phone))
     mycursor.execute(sql, val)
 
