@@ -46,7 +46,15 @@ def detect_intent_texts(session_id, text):
         session=session, query_input=query_input)
 
     print(response)
-    return response
+    respqurtext = response.query_result.query_text
+    resptext = response.query_result.fulfillment_text
+    respintent = response.query_result.intent.display_name
+    jsosrep = {
+        "input" : respqurtext,
+        "text" : resptext,
+        "intent" : respintent
+    }
+    return jsosrep
 
 #Debug Code - Final Commit without REST Integration - Cover API for Google Cloud API
         # print('=' * 20)
