@@ -13,5 +13,16 @@ def communicate():
     response = dialoginteraction.detect_intent_texts(sessionid,text)  
     return response
 
+@app.route("/addtodb", methods=['POST'])
+def addtodb():
+    jsonget = request.get_json()
+    name = jsonget['name']
+    email = jsonget['emailid']
+    phone = jsonget['phno']
+
+    print(name+"\n")
+    print(email+"\n")
+    print(phone+"\n")
+
 if __name__=='__main__':
     app.run(debug=True)
