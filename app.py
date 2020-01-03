@@ -27,13 +27,14 @@ def addtodb():
     
     mydb = mysql.connector.connect(
     host="den1.mysql4.gear.host",
+    database="kab2020",
     user="kab2020",
     passwd="Xu7h4?m1u0!9"
     )
 
     print(mydb)
     mycursor = mydb.cursor()
-    
+
     sql = "INSERT INTO customers (name, email, phone) VALUES (%s, %s,%s)"
     val = (name, email,int(phone))
     mycursor.execute(sql, val)
