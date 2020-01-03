@@ -31,9 +31,11 @@
 
             $.ajax(settings).done(function (response) {
                 console.log(response);
-                console.log(response['text']);
-                responsejson = JSON.parse(response);
-                return responsejson['text'];
+                resp1 = JSON.stringify(response);
+                console.log(resp1);
+                responsejson = JSON.parse(resp1);
+                console.log(responsejson.text);
+                return responsejson.text;
                 
             });
             
@@ -215,6 +217,7 @@
             $(".chat").append('<div class="row user-says"><div class="col-sm-6"></div><div class="col-sm-5" style="background-color: #727AFF; border-radius: 12px;color: white;"><p style="margin-top: 4px;" id="input">' + text + '</p></div><div class="col-sm-1"></div></div>');
 
             var returntext = send(text);
+            console.log(returntext);
             $(".chat").append('<div class="row bot-says"><div class="col-sm-1"> <img src="../assets/chat_bot.svg" alt="" style="width: 45px;float: right;"></div><div class="col-sm-5" style="background-color: #727AFF;border-radius: 12px;color: white;"><p style="margin-top: 4px;">'+returntext+'</p></div><div class="col-sm-6"></div><br></div><br>');
 
 
