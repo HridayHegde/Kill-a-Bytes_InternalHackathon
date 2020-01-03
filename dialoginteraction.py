@@ -50,9 +50,9 @@ def detect_intent_texts(session_id, text):
     resptext = response.query_result.fulfillment_text
     respintent = response.query_result.intent.display_name
     jsosrep = {
-        "input" : "\""+respqurtext+"\"",
-        "text" : "\""+resptext+"\"",
-        "intent" : "\""+respintent+"\""
+        "input" : respqurtext,
+        "text" : resptext,
+        "intent" : respintent
     }
     return jsosrep
 
