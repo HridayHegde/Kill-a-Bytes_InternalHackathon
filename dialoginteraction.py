@@ -44,6 +44,8 @@ def detect_intent_texts(session_id, text):
 
     response = session_client.detect_intent(
         session=session, query_input=query_input)
+
+    print(response)
     return response
 
 #Debug Code - Final Commit without REST Integration - Cover API for Google Cloud API
