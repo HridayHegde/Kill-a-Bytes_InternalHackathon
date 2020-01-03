@@ -56,7 +56,11 @@
 
             });*/
             resp = $('.andu').attr('id');
-            alert("afjnansf3j -- "+ resp);
+            console.log("Output "+resp);
+            setTimeout(function(){
+                console.log("I am setTimeout");
+            },4000);
+            //alert("afjnansf3j -- "+ resp);
             return resp;
             
           
@@ -235,13 +239,16 @@
 
             $(".chat").append('<div class="row user-says"><div class="col-sm-6"></div><div class="col-sm-5" style="background-color: #727AFF; border-radius: 12px;color: white;"><p style="margin-top: 4px;" id="input">' + text + '</p></div><div class="col-sm-1"></div></div>');
 
+            
             rettext = send(text);
+            setTimeout(function(){
             rettext = $('.andu').attr('id');
             console.log("Text Here --- "+rettext);
-            $(".chat").append('<div class="row bot-says"><div class="col-sm-1"> <img src="../assets/chat_bot.svg" alt="" style="width: 45px;float: right;"></div><div class="col-sm-5" style="background-color: #727AFF;border-radius: 12px;color: white;"><p style="margin-top: 4px;">'+rettext+'</p></div><div class="col-sm-6"></div><br></div><br>');
-
-
-            $('#hash').val('');
+            
+                 $(".chat").append('<div class="row bot-says"><div class="col-sm-1"> <img src="../assets/chat_bot.svg" alt="" style="width: 45px;float: right;"></div><div class="col-sm-5" style="background-color: #727AFF;border-radius: 12px;color: white;"><p style="margin-top: 4px;">'+rettext+'</p></div><div class="col-sm-6"></div><br></div><br>');
+                 $('#hash').val('');
+            },3000);
+           
         });
     </script>
 
