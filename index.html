@@ -106,7 +106,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm-6 "><button type="button" class="btn btn-primary">Log In</button></div>
+                                <div class="col-sm-6 "><button type="button" class="btn btn-primary" id="reg">Register</button></div>
                                 <div class="col-sm-6 menu"><button type="button" id="report" class="btn btn-primary">Report Crime</button></div>
 
                             </div>
@@ -373,7 +373,29 @@
             }, 2000);
         });
     </script>
+<script>
+        $("#reg").click(function() {
+            var text = "Register";
 
+
+            $(".chat").append('<div class="row user-says"><div class="col-sm-6"></div><div class="col-sm-5" style="background-color: #727AFF; border-radius: 12px;color: white;"><p style="margin-top: 4px;" id="input">' + text + '</p></div><div class="col-sm-1"></div></div>');
+
+
+            /*rettext = send(text);
+            setTimeout(function() {
+                rettext = $('.andu').attr('id');
+                $('#hash').val('');
+                console.log("Text Here --- " + rettext);
+
+                $(".chat").append('<div class="row bot-says"><div class="col-sm-1"> <img src="assets/chat_bot.svg" alt="" style="width: 45px;float: right;"></div><div class="col-sm-5" style="background-color: #727AFF;border-radius: 12px;color: white;"><p style="margin-top: 4px;">' + rettext + '</p></div><div class="col-sm-6"></div><br></div><br>');
+            }, 5000);
+            $('.chat-window').animate({
+                scrollTop: $('.chat-window').get(0).scrollHeight
+            }, 2000);*/
+            $(".chat").append('<div class="row bot-says"><div class="col-sm-1"> <img src="assets/chat_bot.svg" alt="" style="width: 45px;float: right;"></div><div class="col-sm-5" style="background-color: #727AFF;border-radius: 12px;color: white;"><p style="margin-top: 4px;">' + "Rerouting to Registration Page" + '</p></div><div class="col-sm-6"></div><br></div><br>');
+            window.location.assign('reg.php');
+        });
+    </script>
 
 
 
