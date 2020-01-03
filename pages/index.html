@@ -16,9 +16,10 @@
     
     <script>
     var sessionid = localStorage.getItem("session");
-
+   
         function send(text) {
-            var resp;
+            var resp = "";
+
             var settings = {
                 "url": "https://kab2020-crimereg.herokuapp.com/communicate",
                 "method": "POST",
@@ -28,19 +29,37 @@
             },
                 "data": JSON.stringify({"session":sessionid,"text":text}),
             };
-
+            
             $.ajax(settings).done(function (response) {
                 console.log(response);
                 resp1 = JSON.stringify(response);
-                console.log(resp1);
                 responsejson = JSON.parse(resp1);
                 console.log(responsejson.text);
-                return responsejson.text;
+                $('.andu').attr('id',responsejson.text);
                 
             });
+           /* $.ajax({
+                url : "https://kab2020-crimereg.herokuapp.com/communicate",
+                method: "POST",
+                dataType:'json',
+                data: JSON.stringify({"session":sessionid,"text":text}),
+                contentType: "application/json",
+                success: function(data){
+                    alert(data.d);
+                    resp1 = JSON.stringify(data.d);
+                    responsejson = JSON.parse(resp1);
+                    resp = responsejson.text;
+                },
+                error:function(ex){
+                    alert(ex.responseText);
+                }
+
+            });*/
+            resp = $('.andu').attr('id');
+            alert("afjnansf3j -- "+ resp);
+            return resp;
             
-            
-            
+          
 
     }
     </script>
@@ -48,7 +67,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container andu">
         <br>
 
         <font class="main-heading">Kil-A-Bytes </font>
@@ -216,9 +235,10 @@
 
             $(".chat").append('<div class="row user-says"><div class="col-sm-6"></div><div class="col-sm-5" style="background-color: #727AFF; border-radius: 12px;color: white;"><p style="margin-top: 4px;" id="input">' + text + '</p></div><div class="col-sm-1"></div></div>');
 
-            var returntext = send(text);
-            console.log(returntext);
-            $(".chat").append('<div class="row bot-says"><div class="col-sm-1"> <img src="../assets/chat_bot.svg" alt="" style="width: 45px;float: right;"></div><div class="col-sm-5" style="background-color: #727AFF;border-radius: 12px;color: white;"><p style="margin-top: 4px;">'+returntext+'</p></div><div class="col-sm-6"></div><br></div><br>');
+            rettext = send(text);
+            rettext = $('.andu').attr('id');
+            console.log("Text Here --- "+rettext);
+            $(".chat").append('<div class="row bot-says"><div class="col-sm-1"> <img src="../assets/chat_bot.svg" alt="" style="width: 45px;float: right;"></div><div class="col-sm-5" style="background-color: #727AFF;border-radius: 12px;color: white;"><p style="margin-top: 4px;">'+rettext+'</p></div><div class="col-sm-6"></div><br></div><br>');
 
 
             $('#hash').val('');
