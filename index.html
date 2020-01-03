@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
 <script>
-    var sessionidgen = Math.random(0,9999);
+    var sessionidgen = Math.random(0, 9999);
     localStorage.setItem("session", sessionidgen);
 </script>
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -13,10 +14,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>Kil-A-Bytes Crime Reporter</title>
-    
+
     <script>
-    var sessionid = localStorage.getItem("session");
-   
+        var sessionid = localStorage.getItem("session");
+
         function send(text) {
             var resp = "";
 
@@ -26,46 +27,49 @@
                 "timeout": 0,
                 "headers": {
                     "Content-Type": "application/json"
-            },
-                "data": JSON.stringify({"session":sessionid,"text":text}),
+                },
+                "data": JSON.stringify({
+                    "session": sessionid,
+                    "text": text
+                }),
             };
-            
-            $.ajax(settings).done(function (response) {
+
+            $.ajax(settings).done(function(response) {
                 console.log(response);
                 resp1 = JSON.stringify(response);
                 responsejson = JSON.parse(resp1);
                 console.log(responsejson.text);
-                $('.andu').attr('id',responsejson.text);
-                
-            });
-           /* $.ajax({
-                url : "https://kab2020-crimereg.herokuapp.com/communicate",
-                method: "POST",
-                dataType:'json',
-                data: JSON.stringify({"session":sessionid,"text":text}),
-                contentType: "application/json",
-                success: function(data){
-                    alert(data.d);
-                    resp1 = JSON.stringify(data.d);
-                    responsejson = JSON.parse(resp1);
-                    resp = responsejson.text;
-                },
-                error:function(ex){
-                    alert(ex.responseText);
-                }
+                $('.andu').attr('id', responsejson.text);
 
-            });*/
+            });
+            /* $.ajax({
+                 url : "https://kab2020-crimereg.herokuapp.com/communicate",
+                 method: "POST",
+                 dataType:'json',
+                 data: JSON.stringify({"session":sessionid,"text":text}),
+                 contentType: "application/json",
+                 success: function(data){
+                     alert(data.d);
+                     resp1 = JSON.stringify(data.d);
+                     responsejson = JSON.parse(resp1);
+                     resp = responsejson.text;
+                 },
+                 error:function(ex){
+                     alert(ex.responseText);
+                 }
+
+             });*/
             resp = $('.andu').attr('id');
-            console.log("Output "+resp);
-            setTimeout(function(){
+            console.log("Output " + resp);
+            setTimeout(function() {
                 console.log("I am setTimeout");
-            },4000);
+            }, 4000);
             //alert("afjnansf3j -- "+ resp);
             return resp;
-            
-          
 
-    }
+
+
+        }
     </script>
 
 </head>
@@ -103,19 +107,19 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6 "><button type="button" class="btn btn-primary">Log In</button></div>
-                                <div class="col-sm-6 menu"><button type="button" class="btn btn-primary">Report Crime</button></div>
+                                <div class="col-sm-6 menu"><button type="button" id="report" class="btn btn-primary">Report Crime</button></div>
 
                             </div>
                             <br>
                             <div class="row">
-                                <div class="col-sm-6 "><button type="button" class="btn btn-primary">Awareness</button></div>
-                                <div class="col-sm-6 menu"><button type="button" class="btn btn-primary">Customer Support</button></div>
+                                <div class="col-sm-6 "><button type="button" id="aware" class="btn btn-primary">Awareness</button></div>
+                                <div class="col-sm-6 menu"><button type="button" id="cs" class="btn btn-primary">Customer Support</button></div>
 
                             </div>
                             <br>
                             <div class="row">
-                                <div class="col-sm-6 "><button type="button" class="btn btn-primary">Social Media</button></div>
-                                <div class="col-sm-6 menu"><button type="button" class="btn btn-primary">Subscribe</button></div>
+                                <div class="col-sm-6 "><button type="button" id="about" class="btn btn-primary">About Us</button></div>
+                                <div class="col-sm-6 menu"><button type="button" id="sub" class="btn btn-primary">Subscribe</button></div>
 
                             </div>
 
@@ -239,19 +243,134 @@
 
             $(".chat").append('<div class="row user-says"><div class="col-sm-6"></div><div class="col-sm-5" style="background-color: #727AFF; border-radius: 12px;color: white;"><p style="margin-top: 4px;" id="input">' + text + '</p></div><div class="col-sm-1"></div></div>');
 
-            
+
             rettext = send(text);
-            setTimeout(function(){
-            rettext = $('.andu').attr('id');
-            $('#hash').val('');
-            console.log("Text Here --- "+rettext);
-            
-                 $(".chat").append('<div class="row bot-says"><div class="col-sm-1"> <img src="assets/chat_bot.svg" alt="" style="width: 45px;float: right;"></div><div class="col-sm-5" style="background-color: #727AFF;border-radius: 12px;color: white;"><p style="margin-top: 4px;">'+rettext+'</p></div><div class="col-sm-6"></div><br></div><br>');
-                 
-            },5000);
-           $('.chat-window').animate({
+            setTimeout(function() {
+                rettext = $('.andu').attr('id');
+                $('#hash').val('');
+                console.log("Text Here --- " + rettext);
+
+                $(".chat").append('<div class="row bot-says"><div class="col-sm-1"> <img src="assets/chat_bot.svg" alt="" style="width: 45px;float: right;"></div><div class="col-sm-5" style="background-color: #727AFF;border-radius: 12px;color: white;"><p style="margin-top: 4px;">' + rettext + '</p></div><div class="col-sm-6"></div><br></div><br>');
+
+            }, 5000);
+            $('.chat-window').animate({
                 scrollTop: $('.chat-window').get(0).scrollHeight
-    },      2000);
+            }, 2000);
+        });
+    </script>
+    <script>
+        $("#report").click(function() {
+            var text = "Report Crime";
+
+
+            $(".chat").append('<div class="row user-says"><div class="col-sm-6"></div><div class="col-sm-5" style="background-color: #727AFF; border-radius: 12px;color: white;"><p style="margin-top: 4px;" id="input">' + text + '</p></div><div class="col-sm-1"></div></div>');
+
+
+            rettext = send(text);
+            setTimeout(function() {
+                rettext = $('.andu').attr('id');
+                $('#hash').val('');
+                console.log("Text Here --- " + rettext);
+
+                $(".chat").append('<div class="row bot-says"><div class="col-sm-1"> <img src="assets/chat_bot.svg" alt="" style="width: 45px;float: right;"></div><div class="col-sm-5" style="background-color: #727AFF;border-radius: 12px;color: white;"><p style="margin-top: 4px;">' + rettext + '</p></div><div class="col-sm-6"></div><br></div><br>');
+            }, 5000);
+            $('.chat-window').animate({
+                scrollTop: $('.chat-window').get(0).scrollHeight
+            }, 2000);
+        });
+    </script>
+
+
+
+
+
+    <script>
+        $("#aware").click(function() {
+            var text = "Show me extra information about safety";
+
+
+            $(".chat").append('<div class="row user-says"><div class="col-sm-6"></div><div class="col-sm-5" style="background-color: #727AFF; border-radius: 12px;color: white;"><p style="margin-top: 4px;" id="input">' + text + '</p></div><div class="col-sm-1"></div></div>');
+
+
+            rettext = send(text);
+            setTimeout(function() {
+                rettext = $('.andu').attr('id');
+                $('#hash').val('');
+                console.log("Text Here --- " + rettext);
+
+                $(".chat").append('<div class="row bot-says"><div class="col-sm-1"> <img src="assets/chat_bot.svg" alt="" style="width: 45px;float: right;"></div><div class="col-sm-5" style="background-color: #727AFF;border-radius: 12px;color: white;"><p style="margin-top: 4px;">' + rettext + '</p></div><div class="col-sm-6"></div><br></div><br>');
+            }, 5000);
+            $('.chat-window').animate({
+                scrollTop: $('.chat-window').get(0).scrollHeight
+            }, 2000);
+        });
+    </script>
+
+
+    <script>
+        $("#cs").click(function() {
+            var text = "Take me to customer support";
+
+
+            $(".chat").append('<div class="row user-says"><div class="col-sm-6"></div><div class="col-sm-5" style="background-color: #727AFF; border-radius: 12px;color: white;"><p style="margin-top: 4px;" id="input">' + text + '</p></div><div class="col-sm-1"></div></div>');
+
+
+            rettext = send(text);
+            setTimeout(function() {
+                rettext = $('.andu').attr('id');
+                $('#hash').val('');
+                console.log("Text Here --- " + rettext);
+
+                $(".chat").append('<div class="row bot-says"><div class="col-sm-1"> <img src="assets/chat_bot.svg" alt="" style="width: 45px;float: right;"></div><div class="col-sm-5" style="background-color: #727AFF;border-radius: 12px;color: white;"><p style="margin-top: 4px;">' + rettext + '</p></div><div class="col-sm-6"></div><br></div><br>');
+            }, 5000);
+            $('.chat-window').animate({
+                scrollTop: $('.chat-window').get(0).scrollHeight
+            }, 2000);
+        });
+    </script>
+
+
+    <script>
+        $("#about").click(function() {
+            var text = "About Us";
+
+
+            $(".chat").append('<div class="row user-says"><div class="col-sm-6"></div><div class="col-sm-5" style="background-color: #727AFF; border-radius: 12px;color: white;"><p style="margin-top: 4px;" id="input">' + text + '</p></div><div class="col-sm-1"></div></div>');
+
+
+            rettext = send(text);
+            setTimeout(function() {
+                rettext = $('.andu').attr('id');
+                $('#hash').val('');
+                console.log("Text Here --- " + rettext);
+
+                $(".chat").append('<div class="row bot-says"><div class="col-sm-1"> <img src="assets/chat_bot.svg" alt="" style="width: 45px;float: right;"></div><div class="col-sm-5" style="background-color: #727AFF;border-radius: 12px;color: white;"><p style="margin-top: 4px;">' + rettext + '</p></div><div class="col-sm-6"></div><br></div><br>');
+            }, 5000);
+            $('.chat-window').animate({
+                scrollTop: $('.chat-window').get(0).scrollHeight
+            }, 2000);
+        });
+    </script>
+
+    <script>
+        $("#sub").click(function() {
+            var text = "Subscribe to alerts";
+
+
+            $(".chat").append('<div class="row user-says"><div class="col-sm-6"></div><div class="col-sm-5" style="background-color: #727AFF; border-radius: 12px;color: white;"><p style="margin-top: 4px;" id="input">' + text + '</p></div><div class="col-sm-1"></div></div>');
+
+
+            rettext = send(text);
+            setTimeout(function() {
+                rettext = $('.andu').attr('id');
+                $('#hash').val('');
+                console.log("Text Here --- " + rettext);
+
+                $(".chat").append('<div class="row bot-says"><div class="col-sm-1"> <img src="assets/chat_bot.svg" alt="" style="width: 45px;float: right;"></div><div class="col-sm-5" style="background-color: #727AFF;border-radius: 12px;color: white;"><p style="margin-top: 4px;">' + rettext + '</p></div><div class="col-sm-6"></div><br></div><br>');
+            }, 5000);
+            $('.chat-window').animate({
+                scrollTop: $('.chat-window').get(0).scrollHeight
+            }, 2000);
         });
     </script>
 
