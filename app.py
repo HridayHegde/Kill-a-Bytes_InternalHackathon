@@ -1,6 +1,7 @@
 import dialoginteraction
 from flask import Flask, request
 from flask_cors import CORS
+import mysql.connector
 
 app = Flask(__name__)
 CORS(app)
@@ -23,6 +24,22 @@ def addtodb():
     print(name+"\n")
     print(email+"\n")
     print(phone+"\n")
+    
+    mydb = mysql.connector.connect(
+    host="den1.mysql4.gear.host",
+    user="kab2020",
+    passwd="Xu7h4?m1u0!9"
+    )
+
+    print(mydb)
+    mycursor = mydb.cursor()
+    
+    sql = "INSERT INTO customers (name, email, phone) VALUES (%s, %s,%s)"
+    val = (name, email,int(phone))
+    mycursor.execute(sql, val)
+
+    mydb.commit()
+
 
 if __name__=='__main__':
     app.run(debug=True)

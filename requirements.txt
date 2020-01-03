@@ -2,3 +2,4 @@ uwsgi
 dialogflow
 flask
 flask-cors
+mysql-connector
